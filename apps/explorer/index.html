@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="explorer-window">
+        <div class="toolbar">
+            <div class="toolbar-menu">
+                <span class="menu-item" data-menu="file">Arquivo</span>
+                <span class="menu-item" data-menu="edit">Editar</span>
+                <span class="menu-item" data-menu="view">Exibir</span>
+                <span class="menu-item" data-menu="tools">Ferramentas</span>
+                <span class="menu-item" data-menu="help">Ajuda</span>
+            </div>
+        </div>
+        
+        <div class="main-container">
+            <!-- Árvore de Pastas -->
+            <div class="folder-tree">
+                <div class="tree-header">Pastas</div>
+                <div class="tree-content" id="folderTree"></div>
+            </div>
+            
+            <!-- Divisor -->
+            <div class="splitter"></div>
+            
+            <!-- Conteúdo da Pasta -->
+            <div class="folder-content">
+                <div class="content-header">
+                    <span id="currentFolder">Área de Trabalho</span>
+                    <div class="view-controls">
+                        <button class="view-btn" id="largeIcons">🖼️</button>
+                        <button class="view-btn" id="detailsView">📋</button>
+                    </div>
+                </div>
+                <div class="content-items" id="folderItems"></div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <span id="itemCount">7 objeto(s)</span>
+            <span id="diskSpace">1,44 GB livres</span>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close">✕</button>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="confirm-modal hidden" id="confirmModal">
+        <div class="confirm-title">Confirmar Exclusão</div>
+        <div class="confirm-content">
+            <span class="confirm-icon">⚠️</span>
+            <span class="confirm-message" id="confirmMessage"></span>
+        </div>
+        <div class="confirm-buttons">
+            <button class="confirm-btn" id="confirmYes">Sim</button>
+            <button class="confirm-btn" id="confirmNo">Não</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

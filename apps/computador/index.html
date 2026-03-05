@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Computador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="computer-window">
+        <div class="toolbar">
+            <div class="toolbar-menu">
+                <span class="menu-item" data-menu="file">Arquivo</span>
+                <span class="menu-item" data-menu="edit">Editar</span>
+                <span class="menu-item" data-menu="view">Exibir</span>
+                <span class="menu-item" data-menu="help">Ajuda</span>
+            </div>
+        </div>
+        
+        <div class="address-bar">
+            <span class="address-label">Endereço</span>
+            <div class="address-field" id="addressField">Meu Computador</div>
+            <button class="go-button" id="goBtn">Ir</button>
+        </div>
+        
+        <div class="drives-container" id="drivesContainer"></div>
+        
+        <div class="status-bar">
+            <span id="itemCount">9 objeto(s)</span>
+            <span id="diskSpace">1,44 GB livres de 2,10 GB</span>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close" id="errorClose">✕</button>
+    </div>
+
+    <!-- Modal de Propriedades -->
+    <div class="properties-modal hidden" id="propertiesModal">
+        <div class="properties-title">Propriedades</div>
+        <div class="properties-content" id="propertiesContent"></div>
+        <button class="properties-close" id="propertiesClose">OK</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

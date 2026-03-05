@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 | Mostra Científica 2026</title>
+    
+    <!-- Bootstrap (apenas para grid e utilitários) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Efeitos CRT -->
+    <link rel="stylesheet" href="transitions/crt-effects.css">
+    
+    <!-- Animações de Boot -->
+    <link rel="stylesheet" href="transitions/boot-animation.css">
+</head>
+<body>
+
+    <!-- TELA INICIAL - COMPUTADOR DESLIGADO -->
+    <div id="power-off-screen" class="power-off">
+        <div class="crt-static"></div>
+        <div class="crt-scanlines"></div>
+        <div class="crt-curvature"></div>
+        
+        <div class="off-content">
+            <div class="off-text">
+                <span class="off-message">Windows 95</span>
+                <span class="blink">_</span>
+            </div>
+            <div class="power-led"></div>
+            <p class="power-hint">Pressione qualquer tecla para iniciar</p>
+        </div>
+    </div>
+
+    <!-- TELA DE BOOT -->
+    <div id="boot-screen" class="boot-screen hidden">
+        <div class="crt-overlay"></div>
+        <div class="crt-curvature"></div>
+        <div class="crt-flicker"></div>
+        
+        <div class="boot-glitch" id="bootGlitch"></div>
+        
+        <div class="boot-container">
+            <!-- Logo Windows 95 -->
+            <div class="windows-logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 24 24'%3E%3Cpath fill='%23000080' d='M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z'/%3E%3C/svg%3E" alt="Windows Logo">
+                <span>Windows 95</span>
+            </div>
+            
+            <!-- Barra de Progresso -->
+            <div class="progress-container">
+                <div class="progress-bar" id="bootProgressBar"></div>
+            </div>
+            
+            <!-- Mensagens de Boot -->
+            <div class="boot-messages" id="bootMessages">
+                <div class="boot-message">Iniciando Windows 95...</div>
+            </div>
+            
+            <!-- Terminal DOS -->
+            <div class="dos-terminal hidden" id="dosTerminal">
+                <div class="dos-content" id="dosContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TELA DE LOGIN -->
+    <div id="login-screen" class="login-screen hidden">
+        <div class="login-window">
+            <div class="login-title-bar">
+                <span class="login-title">Bem-vindo ao Windows 95</span>
+                <div class="login-controls">
+                    <span class="login-close">✕</span>
+                </div>
+            </div>
+            <div class="login-content">
+                <div class="user-icon">👤</div>
+                <div class="login-fields">
+                    <div class="field-row">
+                        <label>Usuário:</label>
+                        <input type="text" value="Visitante" disabled class="login-input">
+                    </div>
+                    <div class="field-row">
+                        <label>Senha:</label>
+                        <input type="text" id="passwordField" value="" disabled class="login-input">
+                    </div>
+                </div>
+                <div class="login-status" id="loginStatus"></div>
+                <div class="login-buttons">
+                    <button class="login-button" id="loginButton" disabled>OK</button>
+                    <button class="login-button" disabled>Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁREA DE TRABALHO -->
+    <div id="desktop" class="desktop hidden">
+        <!-- Efeitos CRT -->
+        <div class="crt-static"></div>
+        <div class="crt-scanlines"></div>
+        <div class="crt-curvature"></div>
+        <div class="crt-flicker"></div>
+        
+        <!-- Ícones do Desktop -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="computador">
+                <div class="icon-img">🖥️</div>
+                <div class="icon-label">Meu Computador</div>
+            </div>
+            <div class="desktop-icon" data-app="explorer">
+                <div class="icon-img">📁</div>
+                <div class="icon-label">Windows Explorer</div>
+            </div>
+            <div class="desktop-icon" data-app="matematica">
+                <div class="icon-img">🧮</div>
+                <div class="icon-label">Museu da<br>Matemática</div>
+            </div>
+            <div class="desktop-icon" data-app="programacao">
+                <div class="icon-img">💾</div>
+                <div class="icon-label">Museu da<br>Programação</div>
+            </div>
+            <div class="desktop-icon" data-app="arcade">
+                <div class="icon-img">🕹️</div>
+                <div class="icon-label">Arcade</div>
+            </div>
+            <div class="desktop-icon" data-app="gerenciador-tarefas">
+                <div class="icon-img">📊</div>
+                <div class="icon-label">Gerenciador<br>de Tarefas</div>
+            </div>
+            <div class="desktop-icon" data-app="painel-controle">
+                <div class="icon-img">⚙️</div>
+                <div class="icon-label">Painel de<br>Controle</div>
+            </div>
+            <div class="desktop-icon" data-app="bloco-notas">
+                <div class="icon-img">📝</div>
+                <div class="icon-label">Bloco de Notas</div>
+            </div>
+            <div class="desktop-icon" data-app="calculadora">
+                <div class="icon-img">🧮</div>
+                <div class="icon-label">Calculadora</div>
+            </div>
+            <div class="desktop-icon" data-app="sobre">
+                <div class="icon-img">ℹ️</div>
+                <div class="icon-label">Sobre</div>
+            </div>
+        </div>
+        
+        <!-- Barra de Tarefas -->
+        <div class="taskbar">
+            <button class="start-button" id="startButton">
+                <span class="start-logo">🪟</span>
+                <span class="start-text">Iniciar</span>
+            </button>
+            
+            <div class="taskbar-divider"></div>
+            
+            <div class="taskbar-apps" id="taskbarApps"></div>
+            
+            <div class="system-tray">
+                <div class="tray-icons">
+                    <span class="tray-icon" id="shutdownTray" title="Desligar">⏻</span>
+                    <span class="tray-icon" title="Volume">🔊</span>
+                </div>
+                <div class="clock" id="clock"></div>
+            </div>
+        </div>
+        
+        <!-- Menu Iniciar -->
+        <div class="start-menu hidden" id="startMenu">
+            <div class="start-header">
+                <span class="start-header-text">Windows 95</span>
+            </div>
+            <div class="start-items">
+                <div class="start-item" data-app="computador">
+                    <span class="item-icon">🖥️</span>
+                    <span class="item-text">Meu Computador</span>
+                </div>
+                <div class="start-item" data-app="explorer">
+                    <span class="item-icon">📁</span>
+                    <span class="item-text">Windows Explorer</span>
+                </div>
+                <div class="start-divider"></div>
+                <div class="start-item" data-app="matematica">
+                    <span class="item-icon">🧮</span>
+                    <span class="item-text">Museu da Matemática</span>
+                </div>
+                <div class="start-item" data-app="programacao">
+                    <span class="item-icon">💾</span>
+                    <span class="item-text">Museu da Programação</span>
+                </div>
+                <div class="start-item" data-app="arcade">
+                    <span class="item-icon">🕹️</span>
+                    <span class="item-text">Arcade</span>
+                </div>
+                <div class="start-divider"></div>
+                <div class="start-item" data-app="gerenciador-tarefas">
+                    <span class="item-icon">📊</span>
+                    <span class="item-text">Gerenciador de Tarefas</span>
+                </div>
+                <div class="start-item" data-app="painel-controle">
+                    <span class="item-icon">⚙️</span>
+                    <span class="item-text">Painel de Controle</span>
+                </div>
+                <div class="start-item" data-app="bloco-notas">
+                    <span class="item-icon">📝</span>
+                    <span class="item-text">Bloco de Notas</span>
+                </div>
+                <div class="start-item" data-app="calculadora">
+                    <span class="item-icon">🧮</span>
+                    <span class="item-text">Calculadora</span>
+                </div>
+                <div class="start-divider"></div>
+                <div class="start-item" data-app="sobre">
+                    <span class="item-icon">ℹ️</span>
+                    <span class="item-text">Sobre</span>
+                </div>
+                <div class="start-divider"></div>
+                <div class="start-item" id="shutdownMenuItem">
+                    <span class="item-icon">⏻</span>
+                    <span class="item-text">Desligar...</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Janela de Aplicativo -->
+        <div id="app-window" class="app-window hidden">
+            <div class="window-title-bar">
+                <span class="window-title" id="windowTitle">Aplicativo</span>
+                <div class="window-controls">
+                    <button class="window-button window-minimize">─</button>
+                    <button class="window-button window-maximize">□</button>
+                    <button class="window-button window-close" id="closeWindow">✕</button>
+                </div>
+            </div>
+            <div class="window-content" id="windowContent"></div>
+            <div class="window-resize-handle"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="transitions/crt-effects.js"></script>
+    <script src="transitions/boot-animation.js"></script>
+    <script src="transitions/shutdown-animation.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

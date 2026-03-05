@@ -1,0 +1,128 @@
+/* ===== EFEITOS CRT AVANÇADOS ===== */
+
+/* Estática com variação */
+.crt-static {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0px, transparent 2px);
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.4;
+    animation: staticNoise 0.08s infinite;
+}
+
+@keyframes staticNoise {
+    0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+    10% { transform: translate(-2px, 2px); opacity: 0.45; }
+    20% { transform: translate(2px, -2px); opacity: 0.4; }
+    30% { transform: translate(-4px, 0); opacity: 0.45; }
+    40% { transform: translate(4px, 4px); opacity: 0.4; }
+    50% { transform: translate(-2px, -4px); opacity: 0.45; }
+    60% { transform: translate(2px, 2px); opacity: 0.4; }
+    70% { transform: translate(-4px, 4px); opacity: 0.45; }
+    80% { transform: translate(4px, -2px); opacity: 0.4; }
+    90% { transform: translate(-2px, 0); opacity: 0.45; }
+}
+
+/* Linhas de scan */
+.crt-scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    animation: scanlineMove 12s linear infinite;
+}
+
+@keyframes scanlineMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Curvatura do tubo */
+.crt-curvature {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+    pointer-events: none;
+    z-index: 9997;
+}
+
+/* Flicker */
+.crt-flicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.02);
+    pointer-events: none;
+    z-index: 9996;
+    animation: intenseFlicker 0.3s infinite;
+}
+
+@keyframes intenseFlicker {
+    0%, 100% { opacity: 1; }
+    25% { opacity: 0.97; }
+    50% { opacity: 0.99; }
+    75% { opacity: 0.98; }
+}
+
+/* Ondas de interferência */
+.crt-interference {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        transparent 10px
+    );
+    pointer-events: none;
+    z-index: 9995;
+    animation: interferenceWave 8s linear infinite;
+}
+
+@keyframes interferenceWave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Brilho de borda */
+.crt-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 50px rgba(0, 255, 0, 0.2);
+    pointer-events: none;
+    z-index: 9994;
+    animation: glowPulse 4s infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: inset 0 0 50px rgba(0, 255, 0, 0.2); }
+    50% { box-shadow: inset 0 0 80px rgba(0, 255, 0, 0.3); }
+}

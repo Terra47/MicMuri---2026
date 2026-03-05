@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloco de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="notepad-window">
+        <div class="toolbar">
+            <div class="toolbar-menu">
+                <span class="menu-item" data-menu="file">Arquivo</span>
+                <span class="menu-item" data-menu="edit">Editar</span>
+                <span class="menu-item" data-menu="format">Formatar</span>
+                <span class="menu-item" data-menu="help">Ajuda</span>
+            </div>
+        </div>
+        
+        <div class="editor-container">
+            <textarea class="editor" id="editor" placeholder="Digite aqui..."></textarea>
+        </div>
+        
+        <div class="status-bar">
+            <span id="cursorPos">Ln 1, Col 1</span>
+            <span id="charCount">0 caracteres</span>
+        </div>
+    </div>
+
+    <!-- Modal de Arquivo -->
+    <div class="file-modal hidden" id="fileModal">
+        <div class="file-title" id="fileTitle">Salvar Como</div>
+        <div class="file-content">
+            <div class="file-field">
+                <label>Nome do arquivo:</label>
+                <input type="text" class="file-input" id="fileName" value="Sem título.txt">
+            </div>
+            <div class="file-field">
+                <label>Salvar em:</label>
+                <select class="file-select" id="fileLocation">
+                    <option>Área de Trabalho</option>
+                    <option>Meus Documentos</option>
+                    <option>Disco Local (C:)</option>
+                </select>
+            </div>
+            <div class="file-buttons">
+                <button class="file-btn" id="fileOk">OK</button>
+                <button class="file-btn" id="fileCancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close" id="errorClose">✕</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

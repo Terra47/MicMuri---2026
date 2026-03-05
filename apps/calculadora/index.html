@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-window">
+        <div class="menu-bar">
+            <span class="menu-item" data-menu="edit">Editar</span>
+            <span class="menu-item" data-menu="view">Exibir</span>
+            <span class="menu-item" data-menu="help">Ajuda</span>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="display-container">
+                <input type="text" class="calculator-display" id="display" readonly value="0">
+            </div>
+            
+            <div class="memory-buttons">
+                <button class="mem-btn" id="mc">MC</button>
+                <button class="mem-btn" id="mr">MR</button>
+                <button class="mem-btn" id="ms">MS</button>
+                <button class="mem-btn" id="mplus">M+</button>
+                <button class="mem-btn" id="mminus">M-</button>
+            </div>
+            
+            <div class="calculator-buttons">
+                <button class="calc-btn" data-value="7">7</button>
+                <button class="calc-btn" data-value="8">8</button>
+                <button class="calc-btn" data-value="9">9</button>
+                <button class="calc-btn operator" data-value="/">/</button>
+                <button class="calc-btn" data-value="4">4</button>
+                <button class="calc-btn" data-value="5">5</button>
+                <button class="calc-btn" data-value="6">6</button>
+                <button class="calc-btn operator" data-value="*">*</button>
+                <button class="calc-btn" data-value="1">1</button>
+                <button class="calc-btn" data-value="2">2</button>
+                <button class="calc-btn" data-value="3">3</button>
+                <button class="calc-btn operator" data-value="-">-</button>
+                <button class="calc-btn" data-value="0">0</button>
+                <button class="calc-btn" data-value=".">.</button>
+                <button class="calc-btn" id="clear">C</button>
+                <button class="calc-btn operator" data-value="+">+</button>
+                <button class="calc-btn equals" id="equals">=</button>
+            </div>
+            
+            <div class="indicator">
+                <span id="memIndicator"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close" id="errorClose">✕</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

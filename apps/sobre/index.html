@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="about-window">
+        <div class="about-header">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Cpath fill='%23000080' d='M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z'/%3E%3C/svg%3E" alt="Windows Logo" class="about-logo">
+            <div class="about-title">Windows 95 RETRO</div>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-section">
+                <h3>Versão 4.00.950</h3>
+                <p>Copyright © Microsoft Corporation 1981-1995</p>
+                <p>Todos os direitos reservados</p>
+            </div>
+            
+            <div class="about-section">
+                <h4>Mostra Científica 2026</h4>
+                <p>Instituto Murialdo</p>
+                <p>Tecnologia & Matemática</p>
+            </div>
+            
+            <div class="about-section">
+                <h4>Créditos</h4>
+                <p>Desenvolvido por: Miguel Nunes Agne (Terra)</p>
+                <p>Design: Windows 95 Retro Edition</p>
+                <p>Animações: CRT Effects</p>
+            </div>
+            
+            <div class="about-section">
+                <h4>Sistema</h4>
+                <p>Processador: Intel 80486 DX2 66MHz</p>
+                <p>Memória: 16 MB RAM</p>
+                <p>Modo de vídeo: 800x600, 256 cores</p>
+                <p>Espaço livre: 1,44 GB</p>
+            </div>
+            
+            <div class="about-section">
+                <h4>Aplicativos</h4>
+                <p>Meu Computador • Windows Explorer</p>
+                <p>Gerenciador de Tarefas • Painel de Controle</p>
+                <p>Bloco de Notas • Calculadora</p>
+                <p>Museu da Matemática • Museu da Programação</p>
+                <p>Arcade</p>
+            </div>
+            
+            <div class="about-section disclaimer">
+                <p>Este é um projeto educacional para a Mostra Científica 2026.</p>
+                <p>Não possui vínculo com a Microsoft Corporation.</p>
+            </div>
+        </div>
+        
+        <div class="about-footer">
+            <button class="about-ok" id="aboutOk">OK</button>
+            <p class="system-info">Memória disponível: 8,8 MB</p>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close" id="errorClose">✕</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
