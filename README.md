@@ -2,7 +2,7 @@
 
 Projeto desenvolvido para a Mostra Científica 2026 do Instituto Murialdo. Simulação interativa de um ambiente Windows 95 com aplicativos funcionais e efeitos CRT.
 
-*Atualmente está em desenvolvimento, portanto está sofrendo mudanças drásticas ou adições de novas mecânicas diáriamente, sendo assim, pode conter bugs.*
+*O projeto está em desenvolvimento ativo, sujeito a mudanças constantes e à inclusão de novas mecânicas, podendo apresentar bugs.*
 
 ---
 
