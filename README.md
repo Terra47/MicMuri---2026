@@ -2,9 +2,19 @@
 
 Projeto desenvolvido para a Mostra Científica 2026 do Instituto Murialdo. Simulação interativa de um ambiente Windows 95 com aplicativos funcionais e efeitos CRT.
 
+*Atualmente está em desenvolvimento, portanto está sofrendo mudanças drásticas ou adições de novas mecânicas diáriamente, sendo assim, pode conter bugs.*
+
 ---
 
 ## Versões
+
+### v4.0 - 06/03/2026
+- Arcade completo com 5 jogos
+- QUACK QUACK (jogo do pato)
+- Dominó contra IA
+- Jogo da Velha com 4 dificuldades
+- Jogo da Memória com emojis
+- 2048 com visual arcade
 
 ### v3.0 - 05/03/2026
 - Museu da Programação agora tem interatividade
