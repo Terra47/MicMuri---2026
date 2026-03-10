@@ -6,6 +6,16 @@ Projeto desenvolvido para a Mostra Científica 2026 do Instituto Murialdo. Simul
 
 ## Versões
 
+### **v6.0 - 10/03/2026** (Versão Atual)
+- Interface arcade corrigida - Cards em grid, scroll funcional, botões funcionando
+- Sistema de créditos persistente - Créditos salvos no localStorage
+- Todos os 11 jogos padronizados com visual Win95 (cinza, bordas 3D)
+- Museu da Matemática - Botões de janela removidos, integração perfeita
+- Museu da Programação - Botões de janela removidos, sistema de vírus aprimorado
+- Sistema de crash com reboot - Ao atingir infecção máxima, mostra BSOD e reinicia automaticamente
+- Reboot funcionando 100% - Sem sumir a interface, volta para tela de boot
+- Arquivos separados - HTML, CSS e JS organizados por pasta
+
 ### v5.0 - 08/03/2026
 - Sudoku com níveis de dificuldade ajustáveis
 - Termo semelhante ao que possuímos hoje
