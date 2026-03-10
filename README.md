@@ -67,8 +67,8 @@ Link: https://terra47.github.io/MicMuri-2026/
 | **Bloco de Notas** | Editor de texto simples |
 | **Calculadora** | Operações básicas |
 | **Museu da Matemática** | Fractais 3D, números primos, constantes |
-| **Museu da Programação** | Sem interação |
-| **Arcade** | Sem interação |
+| **Museu da Programação** | Vírus, Trojans e mais |
+| **Arcade** | Jogos antigos e recentes |
 | **Sobre** | Informações do projeto |
 
 ---
