@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💾 LABORATÓRIO DE CÓDIGO • EXPERIMENTOS VIVOS</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lab">
+        <div class="lab-content">
+            <div class="lab-panel left">
+                <div class="panel-section">
+                    <h3>🧬 VÍRUS SIMULADOS</h3>
+                    <div class="virus-grid" id="virusGrid"></div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🦠 EPIDEMIA</h3>
+                    <div class="epidemic" id="epidemic"></div>
+                    <button class="lab-button" id="infectBtn">INICIAR EPIDEMIA</button>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>⚡ CORRUPÇÃO</h3>
+                    <div class="corruption" id="corruption"></div>
+                    <button class="lab-button" id="corruptBtn">CORROMPER</button>
+                </div>
+            </div>
+            
+            <div class="lab-center">
+                <div class="center-tabs">
+                    <button class="tab active" data-view="virus">🦠 VÍRUS</button>
+                    <button class="tab" data-view="dna">🧬 DNA</button>
+                    <button class="tab" data-view="matrix">🌀 MATRIX</button>
+                    <button class="tab" data-view="glitch">⚡ GLITCH</button>
+                </div>
+                
+                <div class="view-container active" id="virusView">
+                    <canvas id="virusCanvas"></canvas>
+                    <div class="view-controls">
+                        <button class="view-btn" id="createVirus">CRIAR VÍRUS</button>
+                        <button class="view-btn" id="mutateVirus">MUTAR</button>
+                        <button class="view-btn" id="spreadVirus">ESPALHAR</button>
+                    </div>
+                    <div class="virus-info" id="virusInfo"></div>
+                </div>
+                
+                <div class="view-container" id="dnaView">
+                    <div class="dna-helix" id="dnaHelix"></div>
+                    <div class="view-controls">
+                        <button class="view-btn" id="mutateDna">MUTAR DNA</button>
+                        <button class="view-btn" id="replicateDna">REPLICAR</button>
+                        <button class="view-btn" id="corruptDna">CORROMPER</button>
+                    </div>
+                </div>
+                
+                <div class="view-container" id="matrixView">
+                    <canvas id="matrixCanvas"></canvas>
+                    <div class="view-controls">
+                        <button class="view-btn" id="startRain">CHUVA</button>
+                        <button class="view-btn" id="glitchMatrix">GLITCH</button>
+                        <button class="view-btn" id="crashMatrix">CRASH</button>
+                    </div>
+                </div>
+                
+                <div class="view-container" id="glitchView">
+                    <canvas id="glitchCanvas"></canvas>
+                    <div class="view-controls">
+                        <button class="view-btn" id="glitchImage">GLITCH</button>
+                        <button class="view-btn" id="corruptPixels">CORROMPER PIXELS</button>
+                        <button class="view-btn" id="destroyImage">DESTRUIR</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lab-panel right">
+                <div class="panel-section">
+                    <h3>📊 MUTAÇÕES</h3>
+                    <div class="mutation-graph" id="mutationGraph"></div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>⚠️ ALERTAS</h3>
+                    <div class="alerts" id="alerts"></div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🧪 EXPERIMENTOS</h3>
+                    <div class="experiment-list">
+                        <div class="experiment-item" data-exp="worm">🪱 WORM</div>
+                        <div class="experiment-item" data-exp="trojan">🐴 TROJAN</div>
+                        <div class="experiment-item" data-exp="ransomware">💰 RANSOMWARE</div>
+                        <div class="experiment-item" data-exp="bootkit">💾 BOOTKIT</div>
+                        <div class="experiment-item" data-exp="rootkit">🌲 ROOTKIT</div>
+                        <div class="experiment-item" data-exp="keylogger">⌨️ KEYLOGGER</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="lab-footer">
+            <span>⚠️ EXPERIMENTOS CONTROLADOS • NÃO LIBERAR</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

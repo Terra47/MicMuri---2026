@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SPACE INVADERS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">SPACE INVADERS</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="stat-box">
+            <span class="stat-label">PONTOS</span>
+            <span class="stat-value" id="score">0000</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">VIDAS</span>
+            <span class="stat-value lives-display" id="lives">▲▲▲</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">FASE</span>
+            <span class="stat-value" id="level">01</span>
+        </div>
+    </div>
+    
+    <div class="difficulty-panel">
+        <span class="difficulty-label">DIFICULDADE:</span>
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn active" data-difficulty="easy">FÁCIL</button>
+            <button class="difficulty-btn" data-difficulty="medium">MÉDIO</button>
+            <button class="difficulty-btn" data-difficulty="hard">DIFÍCIL</button>
+            <button class="difficulty-btn" data-difficulty="nightmare">INSANO</button>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+        
+        <div class="start-screen" id="startScreen">
+            <div class="win95-box">
+                <h2>SPACE INVADERS</h2>
+                <p>USE AS SETAS PARA MOVER</p>
+                <p>ESPAÇO PARA ATIRAR</p>
+                <button class="win95-btn" id="startGameBtn">INICIAR JOGO</button>
+                <div class="key-hint">
+                    <span>◀</span>
+                    <span>▶</span>
+                    <span>␣</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pause-screen hidden" id="pauseScreen">
+            <div class="win95-box">
+                <h3>PAUSADO</h3>
+                <p>ESPAÇO</p>
+            </div>
+        </div>
+        
+        <div class="level-screen hidden" id="levelCompleteScreen">
+            <div class="win95-box">
+                <h3>FASE CONCLUÍDA</h3>
+                <p>FASE <span id="nextLevel">02</span></p>
+                <button class="win95-btn" id="continueBtn">CONTINUAR</button>
+            </div>
+        </div>
+        
+        <div class="victory-screen hidden" id="victoryScreen">
+            <div class="win95-box">
+                <h2>VITÓRIA!</h2>
+                <p id="victoryScore">0000</p>
+                <button class="win95-btn" id="victoryRestartBtn">JOGAR NOVAMENTE</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls-panel">
+        <div class="control-group">
+            <span class="key">◀</span>
+            <span class="key">▶</span>
+            <span>MOVER</span>
+        </div>
+        <div class="control-group">
+            <span class="key">␣</span>
+            <span>ATIRAR</span>
+        </div>
+        <div class="control-group">
+            <span class="key">R</span>
+            <span>REINICIAR</span>
+        </div>
+        <button class="win95-btn" id="newGameBtn">NOVO JOGO</button>
+    </div>
+    
+    <div class="touch-controls">
+        <div class="touch-row">
+            <button class="touch-btn" id="touchLeft">◀</button>
+            <button class="touch-btn fire-btn" id="touchFire">🔫</button>
+            <button class="touch-btn" id="touchRight">▶</button>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <span>11 jogos disponíveis</span>
+        <span>Senha: *********</span>
+        <span id="creditCounter">3 créditos</span>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="win95-box gameover">
+            <h3>GAME OVER</h3>
+            <p>PONTOS: <span id="gameOverScore">0000</span></p>
+            <p>FASE: <span id="gameOverLevel">01</span></p>
+            <button class="win95-btn" id="restartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

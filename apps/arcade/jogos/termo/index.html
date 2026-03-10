@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TERMO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">TERMO</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="stat-box">
+            <span class="stat-label">TENTATIVAS</span>
+            <span class="stat-value" id="attempts">0/6</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">VITÓRIAS</span>
+            <span class="stat-value" id="wins">0</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">SEQUÊNCIA</span>
+            <span class="stat-value" id="streak">0</span>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <div class="board-container">
+            <div class="board" id="board"></div>
+        </div>
+        
+        <div class="keyboard" id="keyboard"></div>
+        
+        <div class="action-buttons">
+            <button class="win95-btn" id="newGameBtn">NOVA PALAVRA</button>
+            <button class="win95-btn" id="hintBtn">DICA</button>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <span>11 jogos disponíveis</span>
+        <span>Senha: *********</span>
+        <span id="creditCounter">3 créditos</span>
+    </div>
+    
+    <div class="message-screen hidden" id="victoryScreen">
+        <div class="win95-box">
+            <h2>PARABÉNS!</h2>
+            <p>Você acertou a palavra!</p>
+            <p id="victoryWord">Palavra: </p>
+            <p id="victoryAttempts">Tentativas: 0/6</p>
+            <button class="win95-btn" id="victoryRestartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="win95-box gameover">
+            <h3>GAME OVER</h3>
+            <p id="gameOverWord">A palavra era: </p>
+            <button class="win95-btn" id="gameOverRestartBtn">TENTAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

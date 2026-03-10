@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2048</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">2048</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="score-panel">
+        <div class="score-box">
+            <span class="score-label">SCORE</span>
+            <span class="score-value" id="score">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">MELHOR</span>
+            <span class="score-value" id="highScore">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">MAIOR</span>
+            <span class="score-value" id="bestTile">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">JOGADAS</span>
+            <span class="score-value" id="moveCount">0</span>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <div class="grid-container" id="gridContainer"></div>
+    </div>
+    
+    <div class="button-panel">
+        <button class="game-btn" id="newGameBtn">NOVO JOGO</button>
+        <button class="game-btn" id="restartBtn">REINICIAR</button>
+    </div>
+    
+    <div class="touch-controls">
+        <button class="touch-btn" id="touchUp">▲</button>
+        <div class="touch-row">
+            <button class="touch-btn" id="touchLeft">◀</button>
+            <button class="touch-btn" id="touchDown">▼</button>
+            <button class="touch-btn" id="touchRight">▶</button>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <span>© 2048 ARCADE</span>
+        <span>Setas / Toque</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

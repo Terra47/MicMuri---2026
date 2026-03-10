@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JOGO DA VELHA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">JOGO DA VELHA</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="score-panel">
+        <div class="score-box">
+            <span class="score-label">VITÓRIAS</span>
+            <span class="score-value" id="playerWins">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">EMPATES</span>
+            <span class="score-value" id="draws">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">DERROTAS</span>
+            <span class="score-value" id="computerWins">0</span>
+        </div>
+    </div>
+    
+    <div class="difficulty-panel">
+        <span class="difficulty-label">DIFICULDADE:</span>
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn active" data-difficulty="easy">FÁCIL</button>
+            <button class="difficulty-btn" data-difficulty="medium">MÉDIO</button>
+            <button class="difficulty-btn" data-difficulty="hard">DIFÍCIL</button>
+            <button class="difficulty-btn" data-difficulty="impossible">IMPOSSÍVEL</button>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <div class="turn-indicator">
+            <span class="turn-text" id="turnText">SUA VEZ (X)</span>
+            <span class="turn-light" id="turnLight"></span>
+        </div>
+        
+        <div class="board" id="board"></div>
+        
+        <div class="marks-indicator">
+            <span class="player-mark">X - VOCÊ</span>
+            <span class="vs">VS</span>
+            <span class="computer-mark">O - COMPUTADOR</span>
+        </div>
+    </div>
+    
+    <div class="controls-panel">
+        <button class="game-btn" id="newGameBtn">NOVO JOGO</button>
+        <button class="game-btn" id="resetScoreBtn">ZERAR PLACAR</button>
+    </div>
+    
+    <div class="status-bar">
+        <span>© JOGO DA VELHA ARCADE</span>
+        <span>❌ ⭕</span>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="message-content">
+            <h2 id="gameOverTitle">FIM DE JOGO</h2>
+            <p id="gameOverMessage"></p>
+            <button class="game-btn" id="restartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

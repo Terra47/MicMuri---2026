@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PONG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">PONG</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="score-panel">
+        <div class="score-box">
+            <span class="score-label">VOCÊ</span>
+            <span class="score-value" id="playerScore">0</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">CPU</span>
+            <span class="score-value" id="computerScore">0</span>
+        </div>
+    </div>
+    
+    <div class="difficulty-panel">
+        <span class="difficulty-label">DIFICULDADE:</span>
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn active" data-difficulty="easy">FÁCIL</button>
+            <button class="difficulty-btn" data-difficulty="medium">MÉDIO</button>
+            <button class="difficulty-btn" data-difficulty="hard">DIFÍCIL</button>
+            <button class="difficulty-btn" data-difficulty="expert">EXPERT</button>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        
+        <div class="start-screen" id="startScreen">
+            <div class="message-box">
+                <span>PONG</span>
+                <button class="game-btn" id="startGameBtn">INICIAR</button>
+                <div class="control-keys">
+                    <span class="key">▲</span>
+                    <span class="key">▼</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pause-screen hidden" id="pauseScreen">
+            <div class="message-box">
+                <span>PAUSADO</span>
+                <span>ESPAÇO</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls-panel">
+        <div class="control-group">
+            <span class="key">▲</span>
+            <span class="key">▼</span>
+            <span>MOVER</span>
+        </div>
+        <div class="control-group">
+            <span class="key">ESPAÇO</span>
+            <span>PAUSAR</span>
+        </div>
+        <div class="control-group">
+            <span class="key">R</span>
+            <span>REINICIAR</span>
+        </div>
+        <button class="game-btn" id="newGameBtn">NOVO JOGO</button>
+    </div>
+    
+    <div class="touch-controls">
+        <button class="touch-btn" id="touchUp">▲</button>
+        <button class="touch-btn" id="touchDown">▼</button>
+    </div>
+    
+    <div class="status-bar">
+        <span>© PONG ARCADE</span>
+        <span>1972</span>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="message-content">
+            <h2 id="gameOverTitle">FIM DE JOGO</h2>
+            <p id="gameOverMessage"></p>
+            <button class="game-btn" id="restartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

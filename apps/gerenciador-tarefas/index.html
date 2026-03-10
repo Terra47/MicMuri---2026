@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="taskmanager-window">
+        <div class="menu-bar">
+            <span class="menu-item" data-menu="file">Arquivo</span>
+            <span class="menu-item" data-menu="options">Opções</span>
+            <span class="menu-item" data-menu="view">Exibir</span>
+            <span class="menu-item" data-menu="windows">Janelas</span>
+            <span class="menu-item" data-menu="help">Ajuda</span>
+        </div>
+        
+        <div class="tab-control">
+            <div class="tab active" id="tabApps">Aplicativos</div>
+            <div class="tab" id="tabProcesses">Processos</div>
+            <div class="tab" id="tabPerformance">Desempenho</div>
+        </div>
+        
+        <div class="tab-content active" id="appsContent">
+            <div class="list-header">
+                <span>Tarefa</span>
+                <span>Status</span>
+                <span>CPU</span>
+                <span>Memória</span>
+            </div>
+            <div class="apps-list" id="appsList"></div>
+            
+            <div class="task-buttons">
+                <button class="task-btn" id="endTaskBtn">Finalizar Tarefa</button>
+                <button class="task-btn" id="switchToBtn">Alternar Para</button>
+                <button class="task-btn" id="newTaskBtn">Nova Tarefa...</button>
+            </div>
+        </div>
+     
+        <div class="tab-content hidden" id="processesContent">
+            <div class="process-header">
+                <span>Nome do Processo</span>
+                <span>PID</span>
+                <span>CPU</span>
+                <span>Memória</span>
+                <span>Threads</span>
+            </div>
+            <div class="processes-list" id="processesList"></div>
+            
+            <div class="process-buttons">
+                <button class="task-btn" id="endProcessBtn">Finalizar Processo</button>
+                <button class="task-btn" id="priorityBtn">Prioridade</button>
+            </div>
+        </div>
+        
+        <div class="tab-content hidden" id="performanceContent">
+            <div class="performance-stats">
+                <div class="stat-group">
+                    <h4>Uso da CPU</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="cpuBar" style="width: 32%"></div>
+                    </div>
+                    <div class="stat-details">
+                        <span id="cpuValue">32%</span>
+                        <span id="cpuHistory">███░░░░░░░</span>
+                    </div>
+                </div>
+                
+                <div class="stat-group">
+                    <h4>Uso da Memória</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="memBar" style="width: 45%"></div>
+                    </div>
+                    <div class="stat-details">
+                        <span id="memValue">45%</span>
+                        <span id="memInfo">7,2 MB / 16 MB</span>
+                    </div>
+                </div>
+                
+                <div class="system-info">
+                    <p><strong>Sistema:</strong> Windows 95 [Build 950]</p>
+                    <p><strong>Usuário:</strong> Visitante</p>
+                    <p><strong>Memória Total:</strong> 16 MB</p>
+                    <p><strong>Memória Disponível:</strong> <span id="memFree">8,8 MB</span></p>
+                    <p><strong>Processos:</strong> <span id="processCount">12</span></p>
+                    <p><strong>Tempo de atividade:</strong> <span id="uptime">00:15:32</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <span>Processos: <span id="statusProcesses">12</span></span>
+            <span>CPU: <span id="statusCPU">32%</span></span>
+            <span>Mem: <span id="statusMem">7,2 MB / 16 MB</span></span>
+        </div>
+    </div>
+
+    <div class="error-modal hidden" id="errorModal">
+        <div class="error-title">Erro</div>
+        <div class="error-content">
+            <span class="error-icon">❌</span>
+            <span class="error-message" id="errorMessage"></span>
+        </div>
+        <button class="error-close">✕</button>
+    </div>
+
+    <div class="task-modal hidden" id="newTaskModal">
+        <div class="task-modal-title">Nova Tarefa</div>
+        <div class="task-modal-content">
+            <p>Digite o nome do programa, pasta ou documento:</p>
+            <input type="text" class="task-input" id="taskInput" placeholder="Abrir:">
+            <div class="task-modal-buttons">
+                <button class="task-modal-btn" id="taskOk">OK</button>
+                <button class="task-modal-btn" id="taskCancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="priority-modal hidden" id="priorityModal">
+        <div class="priority-title">Definir Prioridade</div>
+        <div class="priority-content">
+            <p id="priorityProcess"></p>
+            <div class="priority-options">
+                <label><input type="radio" name="priority" value="alta"> Alta</label>
+                <label><input type="radio" name="priority" value="normal" checked> Normal</label>
+                <label><input type="radio" name="priority" value="baixa"> Baixa</label>
+            </div>
+            <div class="priority-buttons">
+                <button class="priority-btn" id="priorityOk">OK</button>
+                <button class="priority-btn" id="priorityCancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

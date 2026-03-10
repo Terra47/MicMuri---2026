@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'MS Sans Serif', 'Courier New', monospace;
+    background: #c0c0c0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    font-size: 12px;
+}
+
+.taskmanager-window {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #c0c0c0;
+}
+
+.menu-bar {
+    background: #c0c0c0;
+    padding: 6px 8px;
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid #808080;
+}
+
+.menu-item {
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #000080;
+    color: #ffffff;
+}
+
+.tab-control {
+    display: flex;
+    padding: 8px 8px 0 8px;
+    gap: 2px;
+}
+
+.tab {
+    padding: 6px 16px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tab.active {
+    border-bottom-color: #c0c0c0;
+    background: #c0c0c0;
+    margin-bottom: -2px;
+    z-index: 2;
+}
+
+.tab-content {
+    flex: 1;
+    margin: 0 8px 8px 8px;
+    padding: 10px;
+    background: #ffffff;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    overflow-y: auto;
+}
+
+.list-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 80px 100px;
+    padding: 8px;
+    background: #c0c0c0;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.apps-list {
+    min-height: 200px;
+    margin-bottom: 10px;
+}
+
+.app-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 80px 100px;
+    padding: 6px 8px;
+    border-bottom: 1px solid #c0c0c0;
+    cursor: pointer;
+}
+
+.app-item:hover {
+    background: #c0c0c0;
+}
+
+.app-item.selected {
+    background: #000080;
+    color: #ffffff;
+}
+
+.app-item.selected .status {
+    color: #ffffff !important;
+}
+
+.status.running {
+    color: #008000;
+}
+
+.status.not-responding {
+    color: #ff0000;
+}
+
+.process-header {
+    display: grid;
+    grid-template-columns: 2fr 80px 80px 100px 80px;
+    padding: 8px;
+    background: #c0c0c0;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.processes-list {
+    min-height: 200px;
+    margin-bottom: 10px;
+}
+
+.process-item {
+    display: grid;
+    grid-template-columns: 2fr 80px 80px 100px 80px;
+    padding: 6px 8px;
+    border-bottom: 1px solid #c0c0c0;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.process-item:hover {
+    background: #c0c0c0;
+}
+
+.process-item.selected {
+    background: #000080;
+    color: #ffffff;
+}
+
+.high-cpu {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.performance-stats {
+    padding: 20px;
+}
+
+.stat-group {
+    margin-bottom: 30px;
+}
+
+.stat-group h4 {
+    margin-bottom: 8px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 24px;
+    background: #000000;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #000080;
+    transition: width 0.3s;
+}
+
+.stat-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+#cpuHistory {
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+.system-info {
+    margin-top: 40px;
+    padding: 15px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+}
+
+.system-info p {
+    margin: 5px 0;
+}
+
+.task-buttons, .process-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.task-btn {
+    padding: 6px 16px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.task-btn:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.status-bar {
+    background: #c0c0c0;
+    padding: 4px 8px;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.error-modal, .task-modal, .priority-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background: #c0c0c0;
+    border: 3px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    z-index: 10000;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.error-title, .task-modal-title, .priority-title {
+    background: #000080;
+    color: #ffffff;
+    padding: 6px 10px;
+    font-weight: bold;
+}
+
+.error-content, .task-modal-content, .priority-content {
+    padding: 20px;
+    background: #ffffff;
+}
+
+.task-input {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    font-family: inherit;
+}
+
+.task-modal-buttons, .priority-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.task-modal-btn, .priority-btn {
+    padding: 5px 20px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.error-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priority-options {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.priority-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}

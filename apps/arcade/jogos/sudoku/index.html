@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SUDOKU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">SUDOKU</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="stat-box">
+            <span class="stat-label">TEMPO</span>
+            <span class="stat-value" id="timer">00:00</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">ERROS</span>
+            <span class="stat-value" id="errors">0/3</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">DICAS</span>
+            <span class="stat-value" id="hints">3</span>
+        </div>
+    </div>
+    
+    <div class="difficulty-panel">
+        <span class="difficulty-label">DIFICULDADE:</span>
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn active" data-difficulty="easy">FÁCIL</button>
+            <button class="difficulty-btn" data-difficulty="medium">MÉDIO</button>
+            <button class="difficulty-btn" data-difficulty="hard">DIFÍCIL</button>
+            <button class="difficulty-btn" data-difficulty="expert">EXPERT</button>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <canvas id="gameCanvas" width="450" height="450"></canvas>
+        
+        <div class="number-pad">
+            <button class="num-btn" data-num="1">1</button>
+            <button class="num-btn" data-num="2">2</button>
+            <button class="num-btn" data-num="3">3</button>
+            <button class="num-btn" data-num="4">4</button>
+            <button class="num-btn" data-num="5">5</button>
+            <button class="num-btn" data-num="6">6</button>
+            <button class="num-btn" data-num="7">7</button>
+            <button class="num-btn" data-num="8">8</button>
+            <button class="num-btn" data-num="9">9</button>
+            <button class="num-btn clear-btn" data-num="0">⌫</button>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="win95-btn" id="newGameBtn">NOVO JOGO</button>
+            <button class="win95-btn" id="hintBtn">DICA</button>
+            <button class="win95-btn" id="checkBtn">VERIFICAR</button>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <span>11 jogos disponíveis</span>
+        <span>Senha: *********</span>
+        <span id="creditCounter">3 créditos</span>
+    </div>
+    
+    <div class="message-screen hidden" id="victoryScreen">
+        <div class="win95-box">
+            <h2>PARABÉNS!</h2>
+            <p>Você completou o Sudoku!</p>
+            <p id="victoryTime">Tempo: 00:00</p>
+            <p id="victoryErrors">Erros: 0</p>
+            <button class="win95-btn" id="victoryRestartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="win95-box gameover">
+            <h3>GAME OVER</h3>
+            <p>Você cometeu 3 erros!</p>
+            <p id="gameOverTime">Tempo: 00:00</p>
+            <button class="win95-btn" id="gameOverRestartBtn">TENTAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <div class="toast-message hidden" id="toastMessage">
+        <span id="toastText"></span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

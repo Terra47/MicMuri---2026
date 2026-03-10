@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌀 MUSEU DA MATEMÁTICA • LABIRINTO QUÂNTICO</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="museum-window">
+        <div class="museum-content">
+            <div class="three-canvas" id="threeCanvas"></div>
+            
+            <div class="control-panel">
+                <div class="panel-section">
+                    <h3>🌀 DIMENSÕES</h3>
+                    <div class="dimension-controls">
+                        <button class="dimension-btn" data-dim="2d">2D</button>
+                        <button class="dimension-btn active" data-dim="3d">3D</button>
+                        <button class="dimension-btn" data-dim="4d">4D</button>
+                        <button class="dimension-btn" data-dim="5d">5D</button>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>⚡ CONSTANTES</h3>
+                    <div class="constant-display">
+                        <div class="constant-item" onclick="showConstantInfo('pi')">
+                            <span class="constant-symbol">π</span>
+                            <span class="constant-value" id="piValue">3.1415926535...</span>
+                        </div>
+                        <div class="constant-item" onclick="showConstantInfo('e')">
+                            <span class="constant-symbol">e</span>
+                            <span class="constant-value" id="eValue">2.7182818284...</span>
+                        </div>
+                        <div class="constant-item" onclick="showConstantInfo('phi')">
+                            <span class="constant-symbol">φ</span>
+                            <span class="constant-value" id="phiValue">1.6180339887...</span>
+                        </div>
+                        <div class="constant-item" onclick="showConstantInfo('i')">
+                            <span class="constant-symbol">i</span>
+                            <span class="constant-value">√-1</span>
+                        </div>
+                        <div class="constant-item" onclick="showConstantInfo('tau')">
+                            <span class="constant-symbol">τ</span>
+                            <span class="constant-value">6.2831853071...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🌀 FRACTAIS</h3>
+                    <div class="fractal-controls">
+                        <button class="fractal-btn" data-fractal="mandelbrot">Mandelbrot</button>
+                        <button class="fractal-btn active" data-fractal="julia">Julia</button>
+                        <button class="fractal-btn" data-fractal="sierpinski">Sierpinski</button>
+                        <button class="fractal-btn" data-fractal="dragon">Curva do Dragão</button>
+                        <button class="fractal-btn" data-fractal="koch">Floco de Koch</button>
+                        <button class="fractal-btn" data-fractal="tree">Árvore Fractal</button>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🧮 NÚMEROS PRIMOS</h3>
+                    <div class="prime-display" id="primeDisplay">
+                        <div class="prime-spiral" id="primeSpiral"></div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>⚡ SEQUÊNCIA DE FIBONACCI</h3>
+                    <div class="fibonacci-display">
+                        <div class="fibonacci-spiral" id="fibonacciSpiral"></div>
+                        <div class="fibonacci-numbers" id="fibonacciNumbers"></div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🌀 TEOREMA DE PITÁGORAS</h3>
+                    <div class="pythagoras-demo">
+                        <canvas id="pythagorasCanvas" width="200" height="200"></canvas>
+                        <div class="pythagoras-controls">
+                            <label>Cateto A: <span id="aValue">3</span></label>
+                            <input type="range" id="pythagorasA" min="1" max="10" value="3">
+                            <label>Cateto B: <span id="bValue">4</span></label>
+                            <input type="range" id="pythagorasB" min="1" max="10" value="4">
+                            <div class="pythagoras-result">
+                                <span>a² + b² = c²</span>
+                                <span id="pythagorasC">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>📊 TEORIA DOS NÚMEROS</h3>
+                    <div class="number-theory">
+                        <div class="theory-item" onclick="showTheoryInfo('goldbach')">
+                            <span class="theory-icon">✨</span>
+                            <span>Conjectura de Goldbach</span>
+                        </div>
+                        <div class="theory-item" onclick="showTheoryInfo('riemann')">
+                            <span class="theory-icon">🌀</span>
+                            <span>Hipótese de Riemann</span>
+                        </div>
+                        <div class="theory-item" onclick="showTheoryInfo('twin')">
+                            <span class="theory-icon">👯</span>
+                            <span>Primos Gêmeos</span>
+                        </div>
+                        <div class="theory-item" onclick="showTheoryInfo('perfect')">
+                            <span class="theory-icon">💎</span>
+                            <span>Números Perfeitos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-panel" id="infoPanel">
+                <div class="info-header">
+                    <span class="info-title" id="infoTitle">🌀 Bem-vindo ao Labirinto Quântico</span>
+                    <button class="info-close" id="infoClose">✕</button>
+                </div>
+                <div class="info-content" id="infoContent">
+                    <p>Explore as dimensões da matemática de uma forma completamente nova.</p>
+                    <p>Clique em qualquer elemento para descobrir seus segredos.</p>
+                    <p>🌀 2D → 3D → 4D: A cada dimensão, uma nova perspectiva.</p>
+                    <p style="color: #00ffff;">Use os controles ao lado para navegar!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

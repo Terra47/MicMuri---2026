@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TETRIS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">TETRIS</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="stats-panel">
+        <div class="stat-box">
+            <span class="stat-label">PONTOS</span>
+            <span class="stat-value" id="score">000000</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">LINHAS</span>
+            <span class="stat-value" id="lines">000</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">NÍVEL</span>
+            <span class="stat-value" id="level">01</span>
+        </div>
+    </div>
+    
+    <div class="game-area">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+        
+        <div class="info-panel">
+            <div class="info-box">
+                <span class="info-title">PRÓXIMA</span>
+                <canvas id="nextCanvas" width="120" height="120"></canvas>
+            </div>
+            
+            <div class="info-box">
+                <span class="info-title">SEGURAR</span>
+                <canvas id="holdCanvas" width="120" height="120"></canvas>
+            </div>
+            
+            <div class="info-box controls-box">
+                <span class="info-title">CONTROLES</span>
+                <div class="control-row">
+                    <span class="key">←</span>
+                    <span class="key">→</span>
+                    <span>MOVER</span>
+                </div>
+                <div class="control-row">
+                    <span class="key">↑</span>
+                    <span>GIRAR</span>
+                </div>
+                <div class="control-row">
+                    <span class="key">↓</span>
+                    <span>DESCER</span>
+                </div>
+                <div class="control-row">
+                    <span class="key">␣</span>
+                    <span>DROP</span>
+                </div>
+                <div class="control-row">
+                    <span class="key">C</span>
+                    <span>SEGURAR</span>
+                </div>
+                <div class="control-row">
+                    <span class="key">P</span>
+                    <span>PAUSAR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <span>11 jogos disponíveis</span>
+        <span>Senha: *********</span>
+        <span id="creditCounter">3 créditos</span>
+    </div>
+    
+    <div class="pause-screen hidden" id="pauseScreen">
+        <div class="win95-box">
+            <h3>PAUSADO</h3>
+            <p>Pressione P para continuar</p>
+        </div>
+    </div>
+    
+    <div class="message-screen hidden" id="gameOverScreen">
+        <div class="win95-box gameover">
+            <h3>GAME OVER</h3>
+            <p id="finalScore">Pontuação: 000000</p>
+            <p id="finalLines">Linhas: 000</p>
+            <p id="finalLevel">Nível: 01</p>
+            <button class="win95-btn" id="restartBtn">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

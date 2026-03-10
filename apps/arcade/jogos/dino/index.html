@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QUACK QUACK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="game-header">
+        <button class="back-btn" id="backToArcade">← VOLTAR</button>
+        <div class="game-title">QUACK QUACK</div>
+        <div class="credit-indicator">[1 CRÉDITO]</div>
+    </div>
+    
+    <div class="score-panel">
+        <div class="score-box">
+            <span class="score-label">SCORE</span>
+            <span class="score-value" id="score">0000</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">RECORDE</span>
+            <span class="score-value" id="highScore">0000</span>
+        </div>
+        <div class="score-box">
+            <span class="score-label">ZONA</span>
+            <span class="score-value" id="zone">1</span>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <canvas id="gameCanvas" width="600" height="200"></canvas>
+        
+        <div class="game-message" id="startMessage">
+            <div class="message-box">
+                <span>PRESSIONE ESPAÇO</span>
+            </div>
+        </div>
+        
+        <div class="game-message hidden" id="gameOverMessage">
+            <div class="message-box">
+                <span class="gameover-title">GAME OVER</span>
+                <button class="game-btn" id="restartBtn">JOGAR NOVAMENTE</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls-info">
+        <div class="control-item">
+            <span class="control-key">ESPAÇO</span>
+            <span class="control-desc">SALTAR</span>
+        </div>
+        <div class="control-item">
+            <span class="control-key">↓</span>
+            <span class="control-desc">ABAIXAR</span>
+        </div>
+        <div class="control-item">
+            <span class="control-key">R</span>
+            <span class="control-desc">RESET</span>
+        </div>
+    </div>
+    
+    <div class="touch-controls">
+        <button class="touch-btn" id="jumpBtn">SALTAR</button>
+        <button class="touch-btn" id="duckBtn">ABAIXAR</button>
+    </div>
+    
+    <div class="status-bar">
+        <span>© QUACK QUACK ARCADE</span>
+        <span>🦆</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background: #c0c0c0;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.header {
+    background: #c0c0c0;
+    padding: 4px 8px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    gap: 20px;
+}
+
+.header span {
+    cursor: default;
+    padding: 2px 4px;
+}
+
+.header span:hover {
+    background: #000080;
+    color: white;
+}
+
+.credits {
+    padding: 10px;
+    border-bottom: 2px solid #808080;
+}
+
+.credit-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.credit-line .label {
+    color: #000080;
+    min-width: 140px;
+}
+
+.credit-line .value {
+    background: black;
+    color: #00ff00;
+    padding: 3px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    border: 2px solid #808080;
+}
+
+.password-box {
+    display: flex;
+    gap: 5px;
+}
+
+.password-box input {
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    padding: 3px 6px;
+    font-family: 'Courier New', monospace;
+    width: 120px;
+    background: white;
+}
+
+.password-box input:focus {
+    outline: none;
+}
+
+.password-box button {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 3px 15px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.password-box button:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.games-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.game-card {
+    background: white;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+}
+
+.game-title {
+    color: #000080;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.game-year {
+    color: #808080;
+    font-size: 11px;
+}
+
+.card-cost {
+    background: #000080;
+    color: white;
+    padding: 3px 6px;
+    font-size: 10px;
+    text-align: center;
+    align-self: flex-start;
+}
+
+.play-button {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.play-button:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.play-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.games-grid::-webkit-scrollbar {
+    width: 16px;
+}
+
+.games-grid::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 2px solid #808080;
+}
+
+.games-grid::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+.footer {
+    background: #c0c0c0;
+    padding: 5px 10px;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .credit-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .password-box {
+        width: 100%;
+    }
+    
+    .password-box input {
+        flex: 1;
+    }
+}

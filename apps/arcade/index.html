@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <span>Arquivo</span>
+        <span>Editar</span>
+        <span>Exibir</span>
+        <span>Ferramentas</span>
+        <span>Ajuda</span>
+    </div>
+    
+    <div class="credits">
+        <div class="credit-line">
+            <span class="label">CRÉDITOS DISPONÍVEIS:</span>
+            <span class="value" id="creditDisplay">03</span>
+        </div>
+        <div class="credit-line">
+            <span class="label">INSERIR SENHA:</span>
+            <div class="password-box">
+                <input type="password" id="passwordInput" placeholder="*****">
+                <button id="passwordButton">OK</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="games-grid" id="gamesList">
+        <div class="game-card" data-game="pong">
+            <div class="card-header">
+                <span class="game-title">PONG</span>
+                <span class="game-year">1972</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="snake">
+            <div class="card-header">
+                <span class="game-title">SNAKE</span>
+                <span class="game-year">1976</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="space-invaders">
+            <div class="card-header">
+                <span class="game-title">SPACE INVADERS</span>
+                <span class="game-year">1978</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="tetris">
+            <div class="card-header">
+                <span class="game-title">TETRIS</span>
+                <span class="game-year">1984</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="termo">
+            <div class="card-header">
+                <span class="game-title">TERMO</span>
+                <span class="game-year">2021</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="sudoku">
+            <div class="card-header">
+                <span class="game-title">SUDOKU</span>
+                <span class="game-year">1986</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="2048">
+            <div class="card-header">
+                <span class="game-title">2048</span>
+                <span class="game-year">2014</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="dino">
+            <div class="card-header">
+                <span class="game-title">QUACK QUACK</span>
+                <span class="game-year">2024</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="domino">
+            <div class="card-header">
+                <span class="game-title">DOMINÓ</span>
+                <span class="game-year">~1200</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="velha">
+            <div class="card-header">
+                <span class="game-title">JOGO DA VELHA</span>
+                <span class="game-year">~1300 a.C.</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+        
+        <div class="game-card" data-game="memoria">
+            <div class="card-header">
+                <span class="game-title">JOGO DA MEMÓRIA</span>
+                <span class="game-year">1990</span>
+            </div>
+            <div class="card-cost">[1 CRÉDITO]</div>
+            <button class="play-button">JOGAR</button>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <span>11 jogos disponíveis</span>
+        <span>Senha: *********</span>
+        <span id="creditCounter">3 créditos</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

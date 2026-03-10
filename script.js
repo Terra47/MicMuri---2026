@@ -33,38 +33,50 @@ let windowPosition = { x: 100, y: 100 };
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
+// Virus simulation
+let infectionLevel = 0;
+const MAX_INFECTION = 15;
+const originalDesktopBg = '#008080';
+const originalTaskbarBg = '#c0c0c0';
+
 function powerOn() {
     if (isPoweredOn) return;
     isPoweredOn = true;
     
-    powerOffScreen.style.opacity = '0';
+    // Garante que todas as telas estão no estado correto
+    powerOffScreen.classList.add('hidden');
+    bootScreen.classList.remove('hidden');
+    loginScreen.classList.add('hidden');
+    desktop.classList.add('hidden');
     
-    setTimeout(() => {
-        powerOffScreen.classList.add('hidden');
-        bootScreen.classList.remove('hidden');
-        
-        if (window.crtEffects) {
-            window.crtEffects.start();
-        }
-        
-        bootAnimation.startBoot(
-            bootProgressBar,
-            bootMessages,
-            dosTerminal,
-            dosContent,
-            () => {
+    // Reseta o boot
+    bootProgressBar.style.width = '0%';
+    bootMessages.innerHTML = '<div class="boot-message">Iniciando Windows 95...</div>';
+    bootMessages.classList.remove('hidden');
+    dosTerminal.classList.add('hidden');
+    dosContent.innerHTML = '';
+    
+    if (window.crtEffects) {
+        window.crtEffects.start();
+    }
+    
+    bootAnimation.startBoot(
+        bootProgressBar,
+        bootMessages,
+        dosTerminal,
+        dosContent,
+        () => {
+            setTimeout(() => {
+                bootScreen.style.opacity = '0';
+                
                 setTimeout(() => {
-                    bootScreen.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        bootScreen.classList.add('hidden');
-                        loginScreen.classList.remove('hidden');
-                        animateLogin();
-                    }, 1000);
+                    bootScreen.classList.add('hidden');
+                    loginScreen.classList.remove('hidden');
+                    animateLogin();
                 }, 1000);
-            }
-        );
-    }, 1000);
+            }, 1000);
+        }
+    );
 }
 
 function animateLogin() {
@@ -96,11 +108,24 @@ function animateLogin() {
                         if (window.crtEffects) {
                             window.crtEffects.addWave();
                         }
+                        
+                        // Reseta créditos do arcade ao ligar
+                        resetArcadeCredits();
                     }, 1000);
                 }, { once: true });
             }, 2000);
         }
     }, 300);
+}
+
+function resetArcadeCredits() {
+    const arcadeFrame = document.getElementById('arcade-frame');
+    if (arcadeFrame && arcadeFrame.contentWindow && arcadeFrame.contentWindow.resetArcadeCredits) {
+        arcadeFrame.contentWindow.resetArcadeCredits();
+    }
+    
+    localStorage.removeItem('arcade_credits');
+    sessionStorage.setItem('pc_boot_sequence', 'true');
 }
 
 function openApp(appName) {
@@ -123,7 +148,7 @@ function openApp(appName) {
     if (!app) return;
     
     windowTitle.textContent = app.title;
-    windowContent.innerHTML = `<iframe src="${app.path}" title="${app.title}"></iframe>`;
+    windowContent.innerHTML = `<iframe src="${app.path}" title="${app.title}" style="width:100%; height:100%; border:none;"></iframe>`;
     
     appWindow.classList.remove('hidden');
     appWindow.style.zIndex = nextZIndex++;
@@ -335,13 +360,9 @@ document.addEventListener('mouseup', () => {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Virus simulation
-
-let infectionLevel = 0;
-const MAX_INFECTION = 15; 
-
-const originalDesktopBg = '#008080';
-const originalTaskbarBg = '#c0c0c0';
+// ============================================
+// SISTEMA DE VÍRUS E CRASH
+// ============================================
 
 window.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'VIRUS') {
@@ -510,8 +531,38 @@ function triggerBlueScreenAndShutdown() {
         bsod.remove();
         document.body.style.pointerEvents = 'auto';
         resetInfection();
-        shutdownComputer();
+        rebootComputer(); // Agora chama reboot ao invés de shutdown direto
     }, 5000);
+}
+
+function rebootComputer() {
+    // Força desligamento completo
+    isPoweredOn = false;
+    isLoggedIn = false;
+    
+    desktop.classList.add('hidden');
+    loginScreen.classList.add('hidden');
+    bootScreen.classList.add('hidden');
+    dosTerminal.classList.add('hidden');
+    
+    powerOffScreen.classList.remove('hidden');
+    powerOffScreen.style.opacity = '1';
+    
+    taskbarApps.innerHTML = '';
+    openApps = [];
+    
+    // Reseta tudo
+    resetInfection();
+    
+    // Limpa qualquer estado residual
+    appWindow.classList.add('hidden');
+    windowContent.innerHTML = '';
+    
+    // Volta para tela de boot em vez de precisar F5
+    setTimeout(() => {
+        powerOffScreen.classList.add('hidden');
+        powerOn();
+    }, 2000);
 }
 
 function resetInfection() {
@@ -535,8 +586,4 @@ function resetInfection() {
     document.querySelectorAll('.desktop-icon').forEach(icon => {
         icon.style.filter = '';
     });
-    document.querySelectorAll('.icon-label').forEach(label => {
-    });
-
-    document.querySelectorAll('[style*="z-index: 99999"]').forEach(el => el.remove());
 }
